@@ -1,26 +1,24 @@
-package com.ray.currencyconverter.utils;
+package com.ray.currencyconverter.utils
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import com.ray.currencyconverter.R;
-
+import android.content.Context
+import android.graphics.drawable.Drawable
+import android.widget.Toast
+import android.view.LayoutInflater
+import com.ray.currencyconverter.R
+import android.widget.TextView
+import android.view.Gravity
+import android.view.View
 
 /**
  * <h1>CustomToast</h1>
- * <p>
- *  A custom toast implementation
- * </p>
+ *
+ *
+ * A custom toast implementation
+ *
  *
  * @author Tonmoy Chandra Ray
  */
-public class CustomToast {
-
+object CustomToast {
     /**
      * This method is used to making Custom Toast.
      * How to use?
@@ -28,22 +26,18 @@ public class CustomToast {
      * @param context the application context
      * @param text the string to be shows
      * @param duration the duration of the toast
-     * @return {@link Toast}
+     * @return [Toast]
      */
-    public static Toast makeText(Context context, CharSequence text, int duration) {
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService
-                (Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.layout_custom_toast, null);
-
-        TextView textView = view.findViewById(R.id.toast_text);
-        textView.setText(text);
-
-        Toast toast = new Toast(context);
-        toast.setGravity(Gravity.BOTTOM, 0, 250);
-        toast.setDuration(duration);
-        toast.setView(view);
-
-        return toast;
+    fun makeText(context: Context, text: CharSequence?, duration: Int): Toast {
+        val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        val view = inflater.inflate(R.layout.layout_custom_toast, null)
+        val textView = view.findViewById<TextView>(R.id.toast_text)
+        textView.text = text
+        val toast = Toast(context)
+        toast.setGravity(Gravity.BOTTOM, 0, 250)
+        toast.duration = duration
+        toast.view = view
+        return toast
     }
 
     /**
@@ -55,24 +49,25 @@ public class CustomToast {
      * @param duration the duration of the toast
      * @param background the background of the toast
      * @param colorId the color
-     * @return {@link Toast}
+     * @return [Toast]
      */
-    public static Toast makeText(Context context, CharSequence text, int duration, Drawable background, int colorId) {
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService
-                (Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.layout_custom_toast, null);
-        view.setBackground(background);
-
-        TextView textView = (TextView) view.findViewById(R.id.toast_text);
-        textView.setText(text);
-        textView.setTextColor(colorId);
-
-        Toast toast = new Toast(context);
-        toast.setGravity(Gravity.BOTTOM, 0, 250);
-        toast.setDuration(duration);
-        toast.setView(view);
-
-        return toast;
+    fun makeText(
+        context: Context,
+        text: CharSequence?,
+        duration: Int,
+        background: Drawable?,
+        colorId: Int
+    ): Toast {
+        val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        val view = inflater.inflate(R.layout.layout_custom_toast, null)
+        view.background = background
+        val textView = view.findViewById<View>(R.id.toast_text) as TextView
+        textView.text = text
+        textView.setTextColor(colorId)
+        val toast = Toast(context)
+        toast.setGravity(Gravity.BOTTOM, 0, 250)
+        toast.duration = duration
+        toast.view = view
+        return toast
     }
-
 }
