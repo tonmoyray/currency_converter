@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">CurrencyConverter</string>
+
+    <!--dialog-->
+    <string name="dialog_button_ok">OK</string>
+    <string name="dialog_button_yes">Yes</string>
+    <string name="dialog_button_no">No</string>
+    <string name="error_dialog_title">Error</string>
+    <string name="error_feature_not_implemented">Feature not implemented yet.</string>
+
+    <!--progress dialog-->
+    <string name="please_wait">Please Wait</string>
+
+    <!--errors-->
+    <string name="no_currency">No Currency Data Available</string>
+    <string name="no_from_value">Please provide conversion amount</string>
+
+    <!--exit-->
+    <string name="please_press_again_to_exit">Press BACK again to exit</string>
+
+    <!--data-->
+    <string name="updating_data">Updating Data</string>
+    <string name="hint_enter_amount">Enter amount here</string>
+    <string name="zero">0</string>
+    <string name="one">1</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="four">4</string>
+    <string name="five">5</string>
+    <string name="six">6</string>
+    <string name="seven">7</string>
+    <string name="eight">8</string>
+    <string name="nine">9</string>
+    <string name="clear">X</string>
+    <string name="decimal">.</string>
+    <string name="convert">convert</string>
+    <string name="from">from</string>
+    <string name="to">to</string>
+
+    <string name="USD">USD</string>
+
+
+</resources>

@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/view_background_color"
+    tools:context=".view.MainActivity">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/exchange_data"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/exchange_data_margin_top"
+        android:backgroundTint="@color/view_element_background_color"
+        app:layout_constraintStart_toStartOf="@+id/start_guide"
+        app:layout_constraintEnd_toEndOf="@+id/end_guide"
+        app:layout_constraintTop_toBottomOf="@+id/top_guide">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/from_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/num_pad_text_color"
+                android:text="@string/from"
+                android:textAllCaps="true"
+                android:textSize="@dimen/font_size_small"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/seventy_five_percent_guide"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/from_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/num_pad_text_color"
+                tools:text="12345678"
+                android:textStyle="bold"
+                android:textSize="@dimen/font_size_larger"
+                android:maxLines="1"
+                app:autoSizeMaxTextSize="@dimen/font_size_larger"
+                app:autoSizeMinTextSize="@dimen/font_size_smallest_smallest"
+                app:autoSizeStepGranularity="2sp"
+                app:autoSizeTextType="uniform"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/seventy_five_percent_guide"
+                app:layout_constraintTop_toBottomOf="@+id/from_title"/>
+
+
+            <RelativeLayout
+                android:id="@+id/from_currency_spinner_container"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/spinner_height"
+                android:background="@drawable/spinner_border"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/fifty_percent_guide"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/seventy_five_percent_guide">
+
+                <Spinner
+                    android:id="@+id/from_currency"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:spinnerMode="dropdown" />
+
+                <ImageView
+                    android:id="@+id/from_currency_open_spinner"
+                    android:layout_width="@dimen/drop_down_image_size"
+                    android:layout_height="@dimen/drop_down_image_size"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="end"
+                    android:src="@drawable/ic_baseline_arrow_drop_down_24" />
+            </RelativeLayout>
+
+
+            <ImageView
+                android:id="@+id/info"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/ic_baseline_transform_24"
+                app:layout_constraintBottom_toTopOf="@+id/fifty_percent_guide"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fifty_percent_guide" />
+
+            <TextView
+                android:id="@+id/to_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/num_pad_text_color"
+                android:text="@string/to"
+                android:textAllCaps="true"
+                android:textSize="@dimen/font_size_small"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/seventy_five_percent_guide"
+                app:layout_constraintTop_toBottomOf="@+id/info"/>
+
+            <TextView
+                android:id="@+id/to_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/num_pad_text_color"
+                tools:text="87654321"
+                android:textStyle="bold"
+                android:textSize="@dimen/font_size_larger"
+                android:maxLines="1"
+                app:autoSizeMaxTextSize="@dimen/font_size_larger"
+                app:autoSizeMinTextSize="@dimen/font_size_smallest_smallest"
+                app:autoSizeStepGranularity="2sp"
+                app:autoSizeTextType="uniform"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/seventy_five_percent_guide"
+                app:layout_constraintTop_toBottomOf="@+id/to_title"/>
+
+
+            <RelativeLayout
+                android:id="@+id/to_currency_spinner_container"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/spinner_height"
+                android:orientation="horizontal"
+                android:background="@drawable/spinner_border"
+                app:layout_constraintTop_toTopOf="@+id/to_value"
+                app:layout_constraintBottom_toBottomOf="@+id/to_value"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/seventy_five_percent_guide">
+
+                <Spinner
+                    android:id="@+id/to_currency"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:spinnerMode="dropdown" />
+
+                <ImageView
+                    android:id="@+id/to_currency_open_spinner"
+                    android:layout_width="@dimen/drop_down_image_size"
+                    android:layout_height="@dimen/drop_down_image_size"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="end"
+                    android:src="@drawable/ic_baseline_arrow_drop_down_24" />
+            </RelativeLayout>
+
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/seventy_five_percent_guide"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".70"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/fifty_percent_guide"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent=".50"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/number_pad"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/number_pad_margin_top"
+        app:layout_constraintTop_toBottomOf="@+id/exchange_data"
+        app:layout_constraintStart_toEndOf="@+id/start_guide"
+        app:layout_constraintEnd_toStartOf="@+id/end_guide"
+        app:layout_constraintBottom_toTopOf="@+id/convert">
+
+        <Button
+            android:id="@+id/num_1"
+            android:layout_width="@dimen/number_pad_button_size"
+            android:layout_height="@dimen/number_pad_button_size"
+            android:text="@string/one"
+            android:textSize="@dimen/font_size_large"
+            android:textColor="@color/num_pad_text_color"
+            app:layout_constraintEnd_toStartOf="@+id/num_2"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <Button
+            android:id="@+id/num_2"
+            android:layout_width="@dimen/number_pad_button_size"
+            android:layout_height="@dimen/number_pad_button_size"
+            android:text="@string/two"
+            android:textSize="@dimen/font_size_large"
+            android:textColor="@color/num_pad_text_color"
+            app:layout_constraintBottom_toBottomOf="@+id/num_1"
+            app:layout_constraintEnd_toStartOf="@+id/num_3"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toEndOf="@+id/num_1"
+            app:layout_constraintTop_toTopOf="@+id/num_1" />
+
+        <Button
+            android:id="@+id/num_3"
+            android:layout_width="@dimen/number_pad_button_size"
+            android:layout_height="@dimen/number_pad_button_size"
+            android:text="@string/three"
+            android:textSize="@dimen/font_size_large"
+            android:textColor="@color/num_pad_text_color"
+            app:layout_constraintBottom_toBottomOf="@+id/num_1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toEndOf="@+id/num_2"
+            app:layout_constraintTop_toTopOf="@+id/num_1" />
+
+        <Button
+            android:id="@+id/num_4"
+            android:layout_width="@dimen/number_pad_button_size"
+            android:layout_height="@dimen/number_pad_button_size"
+            android:text="@string/four"
+            android:textSize="@dimen/font_size_large"
+            android:textColor="@color/num_pad_text_color"
+            app:layout_constraintEnd_toStartOf="@+id/num_5"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/num_1" />
+
+        <Button
+            android:id="@+id/num_5"
+            android:layout_width="@dimen/number_pad_button_size"
+            android:layout_height="@dimen/number_pad_button_size"
+            android:text="@string/five"
+            android:textSize="@dimen/font_size_large"
+            android:textColor="@color/num_pad_text_color"
+            app:layout_constraintBottom_toBottomOf="@+id/num_4"
+            app:layout_constraintEnd_toStartOf="@+id/num_6"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toEndOf="@+id/num_1"
+            app:layout_constraintTop_toTopOf="@+id/num_4" />
+
+        <Button
+            android:id="@+id/num_6"
+            android:layout_width="@dimen/number_pad_button_size"
+            android:layout_height="@dimen/number_pad_button_size"
+            android:text="@string/six"
+            android:textSize="@dimen/font_size_large"
+            android:textColor="@color/num_pad_text_color"
+            app:layout_constraintBottom_toBottomOf="@+id/num_4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toEndOf="@+id/num_5"
+            app:layout_constraintTop_toTopOf="@+id/num_4" />
+
+        <Button
+            android:id="@+id/num_7"
+            android:layout_width="@dimen/number_pad_button_size"
+            android:layout_height="@dimen/number_pad_button_size"
+            android:text="@string/seven"
+            android:textSize="@dimen/font_size_large"
+            android:textColor="@color/num_pad_text_color"
+            app:layout_constraintEnd_toStartOf="@+id/num_8"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/num_4" />
+
+        <Button
+            android:id="@+id/num_8"
+            android:layout_width="@dimen/number_pad_button_size"
+            android:layout_height="@dimen/number_pad_button_size"
+            android:text="@string/eight"
+            android:textSize="@dimen/font_size_large"
+            android:textColor="@color/num_pad_text_color"
+            app:layout_constraintBottom_toBottomOf="@+id/num_7"
+            app:layout_constraintEnd_toStartOf="@+id/num_9"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toEndOf="@+id/num_4"
+            app:layout_constraintTop_toTopOf="@+id/num_7" />
+
+        <Button
+            android:id="@+id/num_9"
+            android:layout_width="@dimen/number_pad_button_size"
+            android:layout_height="@dimen/number_pad_button_size"
+            android:text="@string/nine"
+            android:textSize="@dimen/font_size_large"
+            android:textColor="@color/num_pad_text_color"
+            app:layout_constraintBottom_toBottomOf="@+id/num_7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toEndOf="@+id/num_8"
+            app:layout_constraintTop_toTopOf="@+id/num_7" />
+
+
+        <Button
+            android:id="@+id/num_0"
+            android:layout_width="@dimen/number_pad_button_size"
+            android:layout_height="@dimen/number_pad_button_size"
+            android:text="@string/zero"
+            android:textSize="@dimen/font_size_large"
+            android:textColor="@color/num_pad_text_color"
+            app:layout_constraintEnd_toStartOf="@+id/num_dot"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/num_7" />
+
+        <Button
+            android:id="@+id/num_dot"
+            android:layout_width="@dimen/number_pad_button_size"
+            android:layout_height="@dimen/number_pad_button_size"
+            android:text="@string/decimal"
+            android:textSize="@dimen/font_size_large"
+            android:textColor="@color/num_pad_text_color"
+            app:layout_constraintBottom_toBottomOf="@+id/num_0"
+            app:layout_constraintEnd_toStartOf="@+id/num_9"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toEndOf="@+id/num_0"
+            app:layout_constraintTop_toTopOf="@+id/num_0" />
+
+        <Button
+            android:id="@+id/num_delete"
+            android:layout_width="@dimen/number_pad_button_size"
+            android:layout_height="@dimen/number_pad_button_size"
+            android:text="@string/clear"
+            android:textSize="@dimen/font_size_large"
+            android:textColor="@color/num_pad_text_color"
+            app:layout_constraintBottom_toBottomOf="@+id/num_0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toEndOf="@+id/num_dot"
+            app:layout_constraintTop_toTopOf="@+id/num_0" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <Button
+        android:id="@+id/convert"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/convert_button_height"
+        android:layout_marginBottom="@dimen/convert_button_margin_bottom"
+        android:text="@string/convert"
+        android:textSize="@dimen/font_size_medium"
+        app:icon="@drawable/ic_baseline_transform_24"
+        app:iconGravity="textStart"
+        app:layout_constraintStart_toEndOf="@+id/start_guide"
+        app:layout_constraintEnd_toStartOf="@+id/end_guide"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/top_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".00"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/end_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".95"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/start_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent=".05"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

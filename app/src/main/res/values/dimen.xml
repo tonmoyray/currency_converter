@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="custom_dialog_font_size">14sp</dimen>
+    <dimen name="custom_dialog_padding">20dp</dimen>
+    <dimen name="custom_dialog_content_margin_top">15dp</dimen>
+    <dimen name="custom_dialog_progress_size">40dp</dimen>
+    <dimen name="custom_dialog_message_margin_start">20dp</dimen>
+    <dimen name="number_pad_button_size">90dp</dimen>
+    <dimen name="number_pad_margin_top">20dp</dimen>
+    <dimen name="convert_button_height">55dp</dimen>
+    <dimen name="convert_button_margin_bottom">10dp</dimen>
+    <dimen name="drop_down_image_size">25dp</dimen>
+    <dimen name="spinner_height">35dp</dimen>
+    <dimen name="exchange_data_margin_top">10dp</dimen>
+    <dimen name="text_size">38sp</dimen>
+
+    <!--default font size-->
+    <dimen name="font_size_smallest_smallest">8sp</dimen>
+    <dimen name="font_size_smallest">10sp</dimen>
+    <dimen name="font_size_smaller">11sp</dimen>
+    <dimen name="font_size_small">12sp</dimen>
+    <dimen name="font_size_semi_medium">14sp</dimen>
+    <dimen name="font_size_medium">16sp</dimen>
+    <dimen name="font_size_medium_v2">18sp</dimen>
+    <dimen name="font_size_semi_large">20sp</dimen>
+    <dimen name="font_size_large">22sp</dimen>
+    <dimen name="font_size_larger">24sp</dimen>
+    <dimen name="font_size_largest">28sp</dimen>
+    <dimen name="font_size_super_large">30sp</dimen>
+    <dimen name="font_size_super_larger">34sp</dimen>
+    <dimen name="font_size_super_largest">40sp</dimen>
+</resources>
