@@ -11,9 +11,10 @@ import com.ray.currencyconverter.R
 import com.ray.currencyconverter.data.local.db.entity.Rate
 import com.ray.currencyconverter.databinding.ActivityMainBinding
 import com.ray.currencyconverter.utils.CommonHelper
+import com.ray.currencyconverter.utils.ConversionUtil
 import com.ray.currencyconverter.utils.CustomToast
 import com.ray.currencyconverter.utils.Resource
-import com.ray.currencyconverter.viewmodels.MainViewModel
+import com.ray.currencyconverter.viewmodels.CurrencyLayerViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
@@ -30,7 +31,7 @@ class MainActivity : BaseActivity() {
     private val LOG_TAG = MainActivity::class.simpleName.toString()
 
     lateinit var activityMainBinding: ActivityMainBinding
-    private val mainViewModel : MainViewModel by viewModels()
+    private val currencyLayerViewModel : CurrencyLayerViewModel by viewModels()
     lateinit var rate: Rate
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -93,15 +94,14 @@ class MainActivity : BaseActivity() {
             }else{
                 val fromCurrency = activityMainBinding.fromCurrency.selectedItem.toString()
                 val toCurrency = activityMainBinding.toCurrency.selectedItem.toString()
+                val amount = activityMainBinding.fromValue.text.toString().toDouble()
 
-                val fromUsdToFromCurrency = rate.rates[getString(R.string.USD)+fromCurrency]!!
-                val firstConversion = activityMainBinding.fromValue.text.toString().toDouble() / fromUsdToFromCurrency
-
-
-                val fromUsdToToCurrency =  rate.rates[getString(R.string.USD)+toCurrency]!!
-                val secondConversion = firstConversion * fromUsdToToCurrency
-
-                activityMainBinding.toValue.text = secondConversion.toString()
+                val result = ConversionUtil.convert(fromCurrency,toCurrency,amount,rate)
+                if(result == -1.0){
+                    CustomToast.makeText(this, getString(R.string.error_in_conversion), Toast.LENGTH_SHORT).show()
+                }else{
+                    activityMainBinding.toValue.text = result.toString()
+                }
             }
         }
     }
@@ -148,7 +148,7 @@ class MainActivity : BaseActivity() {
     }
 
     private fun initObservers(){
-        mainViewModel.realTimeRate.observe(this, Observer {
+        currencyLayerViewModel.realTimeRate.observe(this, Observer {
 
             when (it.status){
                 Resource.Status.SUCCESS -> {

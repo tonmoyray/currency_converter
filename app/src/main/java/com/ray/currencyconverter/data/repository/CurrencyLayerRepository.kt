@@ -7,8 +7,6 @@ import com.ray.currencyconverter.data.model.response.RealTimeRateResponse
 import com.ray.currencyconverter.data.remote.ApiService
 import com.ray.currencyconverter.data.remote.DBHelper
 import com.ray.currencyconverter.utils.*
-import com.ray.currencyconverter.view.MainActivity
-import org.json.JSONObject
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
@@ -20,13 +18,13 @@ import javax.inject.Inject
  *
  * @author Tonmoy Chandra Ray
  */
-class MainRepository @Inject constructor(
+class CurrencyLayerRepository @Inject constructor(
     private val apiService: ApiService,
     private val dbHelper: DBHelper,
     private val appExecutors: AppExecutors
 ) {
 
-    private val LOG_TAG = MainRepository::class.simpleName.toString()
+    private val LOG_TAG = CurrencyLayerRepository::class.simpleName.toString()
 
     private val repoListRateLimit = RateLimiter<String>(10, TimeUnit.MINUTES)
 

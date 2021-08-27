@@ -4,7 +4,7 @@ import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import com.ray.currencyconverter.BuildConfig
 import com.ray.currencyconverter.data.local.db.entity.Rate
-import com.ray.currencyconverter.data.repository.MainRepository
+import com.ray.currencyconverter.data.repository.CurrencyLayerRepository
 import com.ray.currencyconverter.utils.CommonHelper
 import com.ray.currencyconverter.utils.NetworkHelper
 import com.ray.currencyconverter.utils.Resource
@@ -17,18 +17,18 @@ import com.ray.currencyconverter.utils.Resource
  *
  * @author Tonmoy Chandra Ray
  */
-class MainViewModel @ViewModelInject constructor(
-    private val mainRepository: MainRepository,
+class CurrencyLayerViewModel @ViewModelInject constructor(
+    private val currencyLayerRepository: CurrencyLayerRepository,
     private val networkHelper: NetworkHelper
 ) : ViewModel() {
 
-    private val LOG_TAG = MainViewModel::class.simpleName.toString()
+    private val LOG_TAG = CurrencyLayerViewModel::class.simpleName.toString()
 
     private val _retry = MutableLiveData("")
 
     var realTimeRate: LiveData<Resource<Rate>> = Transformations.switchMap(_retry) {
         CommonHelper.warningLog(LOG_TAG,"realTimeRate $it")
-        mainRepository.getRealTimeRates(BuildConfig.API_KEY)
+        currencyLayerRepository.getRealTimeRates(BuildConfig.API_KEY)
     }
 
 

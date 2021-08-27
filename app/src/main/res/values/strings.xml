@@ -14,6 +14,7 @@
     <!--errors-->
     <string name="no_currency">No Currency Data Available</string>
     <string name="no_from_value">Please provide conversion amount</string>
+    <string name="error_in_conversion">Something went wrong</string>
 
     <!--exit-->
     <string name="please_press_again_to_exit">Press BACK again to exit</string>

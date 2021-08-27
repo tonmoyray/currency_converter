@@ -3,7 +3,6 @@ package com.ray.currencyconverter.di
 import android.content.Context
 import androidx.room.Room
 import com.ray.currencyconverter.BuildConfig
-import com.ray.currencyconverter.data.local.AppSharedPreference
 import com.ray.currencyconverter.data.local.db.DatabaseService
 import com.ray.currencyconverter.data.remote.ApiService
 import com.ray.currencyconverter.data.remote.DBHelper
@@ -28,14 +27,6 @@ class ApplicationModule {
 
     @Provides
     fun provideBaseUrl() = BuildConfig.BASE_URL
-
-
-    @Provides
-    @Singleton
-    fun  providesSharedPreferences(@ApplicationContext  context: Context) : AppSharedPreference {
-        return AppSharedPreference(context)
-    }
-
 
     @Provides
     @Singleton
