@@ -28,7 +28,7 @@ data class RealTimeRateResponse(
 
     @Expose
     @SerializedName("timestamp")
-    val timestamp : Int,
+    val timestamp : Long,
 
     @Expose
     @SerializedName("source")

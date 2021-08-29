@@ -58,10 +58,10 @@ class CurrencyLayerRepository @Inject constructor(
 
                 var timeDiff = 0L
                 data?.timestamp?.let {
-                    timeDiff = System.currentTimeMillis() - it
+                    timeDiff = (System.currentTimeMillis()/1000) - it
                 }
 
-                return data == null || !data.success /*|| (timeDiff > 10 * 60 * 1000)*/
+                return data == null || !data.success || (timeDiff > 30 * 60 * 1000)
             }
 
             override fun loadFromDb(): LiveData<Rate> {
