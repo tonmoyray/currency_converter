@@ -23,8 +23,8 @@ interface RateDao {
     fun insert(entity: Rate) : Long
 
     @Delete
-    suspend fun delete(entity: Rate) : Int
+    fun delete(entity: Rate) : Int
 
     @Update
-    suspend fun update(entity: Rate)
+    fun update(entity: Rate)
 }
