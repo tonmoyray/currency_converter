@@ -145,6 +145,15 @@ class MainActivity : BaseActivity() {
                 // your code here
             }
         }
+
+        activityMainBinding.fromCurrencyOpenSpinner.setOnClickListener {
+            activityMainBinding.fromCurrency.performClick()
+        }
+
+        activityMainBinding.toCurrencyOpenSpinner.setOnClickListener {
+            activityMainBinding.toCurrency.performClick()
+        }
+
     }
 
     private fun initObservers(){
